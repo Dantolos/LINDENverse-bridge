@@ -2,8 +2,14 @@ import '../css/style.css'
 import '../css/form.css'
 import Head from 'next/head'
 import Link from 'next/link'
+import Image from 'next/image'
+
+
+
 
 function MyApp({ Component, pageProps }) {
+
+
   return (
     <>
       <Head>
@@ -15,12 +21,14 @@ function MyApp({ Component, pageProps }) {
           <Link href="/">Home</Link>
           <Link href="/new">Add Pet</Link>
         </div>
-
-        <img
-          id="title"
-          src="https://upload.wikimedia.org/wikipedia/commons/1/1f/Pet_logo_with_flowers.png"
-          alt="pet care logo"
-        ></img>
+        <Image
+          id='title'
+          src="/../public/Linden_Bildmarke_herbstgold.png"
+          width={75}
+          height={75}
+          alt="Picture of the author"
+        /> 
+      
       </div>
       <div className="grid wrapper">
         <Component {...pageProps} />

@@ -1,65 +1,40 @@
-import Link from 'next/link'
-import dbConnect from '../lib/dbConnect'
-import Pet from '../models/Pet'
 
-const Index = ({ pets }) => (
-  <>
-    {/* Create a card for each pet */}
-    {pets.map((pet) => (
-      <div key={pet._id}>
-        <div className="card">
-          <img src={pet.image_url} />
-          <h5 className="pet-name">{pet.name}</h5>
-          <div className="main-content">
-            <p className="pet-name">{pet.name}</p>
-            <p className="owner">Owner: {pet.owner_name}</p>
+import PersonBox from "../components/personbox";
+import { useState } from "react";
 
-            {/* Extra Pet Info: Likes and Dislikes */}
-            <div className="likes info">
-              <p className="label">Likes</p>
-              <ul>
-                {pet.likes.map((data, index) => (
-                  <li key={index}>{data} </li>
-                ))}
-              </ul>
-            </div>
-            <div className="dislikes info">
-              <p className="label">Dislikes</p>
-              <ul>
-                {pet.dislikes.map((data, index) => (
-                  <li key={index}>{data} </li>
-                ))}
-              </ul>
-            </div>
+function Index() {
+  const [refreshData, setRefreshData] = useState(false);
 
-            <div className="btn-container">
-              <Link href="/[id]/edit" as={`/${pet._id}/edit`} legacyBehavior>
-                <button className="btn edit">Edit</button>
-              </Link>
-              <Link href="/[id]" as={`/${pet._id}`} legacyBehavior>
-                <button className="btn view">View</button>
-              </Link>
-            </div>
-          </div>
-        </div>
-      </div>
-    ))}
-  </>
-)
+  
 
-/* Retrieves pet(s) data from mongodb database */
-export async function getServerSideProps() {
-  await dbConnect()
+  const addPerson = async () => {
+    
+    const randomNR = Math.floor(Math.random() * 1000);
+    const res = await fetch('/api/people/add', {
+      method: "POST", 
+      headers:{
+        'Content-Type': 'application/json'
+      },
+      body: JSON.stringify({
+        name:`Mr. Smith Nr ${randomNR}`,
+        email: `test-${randomNR}@test.com`,
+        createdAt: new Date()
+      }),
+    });
+    const data = await res.json();
+    setRefreshData(!refreshData);
+  }
+  
+  return (
+    <>
+      <h1>LINDENverse</h1>
+      <div style={{width: '100%'}}></div>
+      <button onClick={addPerson}>Add new Person</button>
 
-  /* find all the data in our database */
-  const result = await Pet.find({})
-  const pets = result.map((doc) => {
-    const pet = doc.toObject()
-    pet._id = pet._id.toString()
-    return pet
-  })
-
-  return { props: { pets: pets } }
+      <PersonBox refreshData={refreshData}></PersonBox>
+    </>
+  )
 }
 
 export default Index
+
