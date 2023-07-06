@@ -8,9 +8,17 @@ import People from '../../../models/People';
  */
 
 export default async function handler(req, res) {
+  const { searchString } = req.query; // Access the URL parameter
+
+  console.log('req: ' + searchString);
   try {
     await connectMongo();
-    const people = await People.find().sort({'createdAt': -1});
+    const people = await People.find({
+      $or: [
+        { firstname: { $regex: searchString, $options: "i" } },
+        { lastname: { $regex: searchString, $options: "i" } }
+      ]   
+    }).sort({'createdAt': -1});
     res.status(200).json(people);
   } catch (error) {
     console.error("Error fetching data:", error);

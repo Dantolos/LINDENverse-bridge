@@ -2,12 +2,20 @@ import { Schema, model, connection } from 'mongoose';
 import connectMongo from '../utils/connectdb';
 
 const peopleSchema = new Schema({
-    name: String,
+    firstname: String,
+    lastname: String,
     age:{ type: Number, default: 52 },
     email: {
         type: String,
         required: true,
         unique: true,
+        lowercase: true,
+        validate: {
+          validator: function (value) {
+            return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(value);
+          },
+          message: 'Invalid email address',
+        },
     },
 
 }, { 

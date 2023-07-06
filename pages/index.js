@@ -1,37 +1,27 @@
-
-import PersonBox from "../components/personbox";
 import { useState } from "react";
+import PersonGrid from "../components/people/persongrid";
+import PersonForm from "../components/people/personform";
 
 function Index() {
   const [refreshData, setRefreshData] = useState(false);
 
-  
-
-  const addPerson = async () => {
-    
-    const randomNR = Math.floor(Math.random() * 1000);
-    const res = await fetch('/api/people/add', {
-      method: "POST", 
-      headers:{
-        'Content-Type': 'application/json'
-      },
-      body: JSON.stringify({
-        name:`Mr. Smith Nr ${randomNR}`,
-        email: `test-${randomNR}@test.com`,
-        createdAt: new Date()
-      }),
-    });
-    const data = await res.json();
+  const handleRefreshData = () => {
     setRefreshData(!refreshData);
   }
-  
+
   return (
     <>
       <h1>LINDENverse</h1>
-      <div style={{width: '100%'}}></div>
-      <button onClick={addPerson}>Add new Person</button>
-
-      <PersonBox refreshData={refreshData}></PersonBox>
+      <div style={{width: '100%', display: 'flex'}}>
+      
+        <div style={{width: '30%'}}>
+          <PersonForm handleRefreshData={handleRefreshData} />
+        </div>
+        
+        <div style={{width: '70%', maxHeight: '70vh', overflowY: 'scroll'}}>
+          <PersonGrid refreshData={refreshData} handleRefreshData={handleRefreshData}/>
+        </div>
+      </div>
     </>
   )
 }

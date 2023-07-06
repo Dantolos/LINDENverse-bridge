@@ -181,3 +181,34 @@ li {
 .confirmation-box.show {
   display: block;
 }
+
+button {
+  cursor: pointer;
+  background-color: rgb(255, 255, 255);
+  border: 1px solid gray;
+  border-radius: 20px;
+  padding: 8px 20px;
+}
+button:hover {
+  filter: brightness(.95);
+}
+
+/* ALERT */
+
+.alert {
+  background-color: rgb(146, 254, 189);
+  border: 2px solid rgb(22, 247, 71);
+  padding: 20px;
+  position: fixed;
+  bottom: 20px;
+  left:0;
+  right:0;
+  margin:auto;
+  width: 60vw;
+  border-radius: 8px;
+}
+
+.alert-error {
+  background-color: rgb(237, 157, 190);
+  border: 2px solid rgb(213, 0, 78);
+}
