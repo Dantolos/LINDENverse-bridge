@@ -1,6 +1,5 @@
 import { useState } from "react";
-import PersonGrid from "../components/people/persongrid";
-import PersonForm from "../components/people/personform";
+import Dashboard from "../components/dashboard/dashboard";
 
 function Index() {
   const [refreshData, setRefreshData] = useState(false);
@@ -11,16 +10,8 @@ function Index() {
 
   return (
     <>
-      <h1>LINDENverse</h1>
-      <div style={{width: '100%', display: 'flex'}}>
-      
-        <div style={{width: '30%'}}>
-          <PersonForm handleRefreshData={handleRefreshData} />
-        </div>
-        
-        <div style={{width: '70%', maxHeight: '70vh', overflowY: 'scroll'}}>
-          <PersonGrid refreshData={refreshData} handleRefreshData={handleRefreshData}/>
-        </div>
+      <div className="Content">
+          <Dashboard widgets={['People', 'Company' ]}/>
       </div>
     </>
   )

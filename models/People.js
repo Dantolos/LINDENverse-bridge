@@ -1,7 +1,7 @@
-import { Schema, model, connection } from 'mongoose';
+import mongoose from 'mongoose';
 import connectMongo from '../utils/connectdb';
 
-const peopleSchema = new Schema({
+const PeopleSchema = new mongoose.Schema({
     firstname: String,
     lastname: String,
     age:{ type: Number, default: 52 },
@@ -22,14 +22,14 @@ const peopleSchema = new Schema({
     timestamps: { createdAt: true }
 });
 
-let People;
+/* let People;
 
 try {
   // Check if the model already exists in the current connection
-  People = connection.models.People || model('People', peopleSchema);
+  People = mongoose.connection.models.People || mongoose.model('People', peopleSchema);
 } catch (error) {
   // Create the model if it doesn't exist
   People = model('People', peopleSchema);
-}
+} */
 
-export default People;
+module.exports = mongoose.models.People || mongoose.model('People', PeopleSchema);

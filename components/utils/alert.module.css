@@ -1,0 +1,33 @@
+
+.alert {
+     position: fixed;
+     background-color: rgb(146, 254, 189);
+     border: 2px solid rgb(22, 247, 71);
+     padding: 20px;
+     z-index: 80;
+     bottom: 20px;
+     left:0;
+     right:0;
+     margin:auto;
+     width: 60vw;
+     border-radius: 8px;
+}
+
+
+.alert button {
+     background-color: unset;
+     border-color: white;
+     color:white;
+     position: absolute;
+     top:10px;
+     right: 10px;
+     height: 20px;
+     width: 20px;
+     padding: 0;
+     margin: 0;
+}
+
+.alert-error {
+     background-color: rgb(237, 157, 190);
+     border: 2px solid rgb(213, 0, 78);
+}

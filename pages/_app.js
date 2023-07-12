@@ -1,11 +1,7 @@
 import '../css/style.css'
 import '../css/form.css'
 import Head from 'next/head'
-import Link from 'next/link'
-import Image from 'next/image'
-
-
-
+import Navigation from '../components/utils/navi/navi'
 
 function MyApp({ Component, pageProps }) {
 
@@ -13,25 +9,14 @@ function MyApp({ Component, pageProps }) {
   return (
     <>
       <Head>
-        <title>Pet Care App</title>
+        <title>LINDENverse</title>
       </Head>
 
-      <div className="top-bar">
-        <div className="nav">
-          <Link href="/">Home</Link>
-          <Link href="/new">Add Pet</Link>
-        </div>
-        <Image
-          id='title'
-          src="/../public/Linden_Bildmarke_herbstgold.png"
-          width={75}
-          height={75}
-          alt="Picture of the author"
-        /> 
-      
-      </div>
-      <div className="grid wrapper">
+      <div className="container wrapper">
+        <div className='Header L3Lshadow'><Navigation></Navigation></div>       
         <Component {...pageProps} />
+        <div className='Footer'><p>LINDENverse | v0.0.2</p></div>
+        
       </div>
     </>
   )
