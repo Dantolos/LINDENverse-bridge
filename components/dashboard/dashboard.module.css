@@ -15,11 +15,25 @@
      padding: 20px;
      background-color: white;
      border-radius: 15px;
+     height: auto; 
+     align-items: flex-start;
+     
+}    
+.widgetHeader {
+     display: flex;
+     align-items: center;
+     margin-bottom: 20px;
+     position: relative;
+}
+.widgetButton{
+     position: absolute;
+     right: 0;
 
 }
 
+
 .peopleWrapper {
-     height: auto;
+  
 }
 
 .companiesWrapper {

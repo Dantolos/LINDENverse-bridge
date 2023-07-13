@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import Link from "next/link";
 import PersonForm from "./personform";
+import styles from "./people.module.css";
 
 export default function PersonBox({ person, handleRefreshData }){
   const [editSectorVisible, setEditSectorVisible] = useState(false); // New state variable
@@ -10,7 +11,7 @@ export default function PersonBox({ person, handleRefreshData }){
   };
 
   return (
-    <div key={person._id} style={{ width: "100%", margin: '5px', backgroundColor: 'white', padding: '10px 20px', borderRadius: '20px'  }}>
+    <div key={person._id} className={`${styles.personBoxContainer} L3Lshadow`}>
       <Link href={`/people/${person._id}`}>
         <h3>{person.firstname} {person.lastname}</h3>
       </Link>

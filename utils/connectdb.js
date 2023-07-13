@@ -14,7 +14,7 @@ const connectMongo = async () => {
 
   connection.isConnected = db.connections[0].readyState;
 
-  console.log(connection.isConnected);
+  //console.log(connection.isConnected);
 };
 
 export default connectMongo;

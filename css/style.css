@@ -30,9 +30,9 @@ a {
 button { padding:unset; border:unset; background-color: unset; width: unset; display:unset; }
 
 .L3Lshadow {
-  -webkit-box-shadow: 4px 4px 25px -14px rgba(194,194,194,1);
-  -moz-box-shadow: 4px 4px 25px -14px rgba(194,194,194,1);
-  box-shadow: 4px 4px 25px -14px rgba(194,194,194,1);
+  -webkit-box-shadow: 4px 4px 25px -14px rgb(168, 168, 168);
+  -moz-box-shadow: 4px 4px 25px -14px rgb(168, 168, 168);
+  box-shadow: 4px 4px 25px -14px rgb(168, 168, 168);
 }
 
 /* BASIC LAYOUT */
@@ -123,4 +123,24 @@ button.btn:hover {
 button.btn.attention {
   border: 1px solid var(--redish);
   color:var(--redish);
+}
+
+
+/* Navigation */
+.navigation {
+  height: 100%;
+  display: flex;
+}
+.navbtn {
+  height: 100%;
+  padding: 0 20px;
+  display: flex;
+  max-width: fit-content;
+  justify-content: center;
+  align-items: center;
+  border-right: 1px solid var(--shade20);
+}
+
+.navbtn:hover {
+  background-color: var(--shade10);
 }

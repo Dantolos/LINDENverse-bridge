@@ -5,7 +5,6 @@ import Navigation from '../components/utils/navi/navi'
 
 function MyApp({ Component, pageProps }) {
 
-
   return (
     <>
       <Head>
@@ -16,7 +15,6 @@ function MyApp({ Component, pageProps }) {
         <div className='Header L3Lshadow'><Navigation></Navigation></div>       
         <Component {...pageProps} />
         <div className='Footer'><p>LINDENverse | v0.0.2</p></div>
-        
       </div>
     </>
   )
