@@ -12,12 +12,12 @@ export default function PersonBox({ person, handleRefreshData }){
 
   return (
     <div key={person._id} className={`${styles.personBoxContainer} L3Lshadow`}>
-      <Link href={`/people/${person._id}`}>
+      <Link href={`/data/people/${person._id}`}>
         <h3>{person.firstname} {person.lastname}</h3>
       </Link>
       <p>{person.email}</p>
       <button onClick={toggleEditSector} className="btn">Quick edit</button>
-      <Link href={`/people/${person._id}`} ><button className="btn">Person Page</button></Link>
+      <Link href={`/data/people/${person._id}`} ><button className="btn">Person Page</button></Link>
       { editSectorVisible && ( // Render the EditSector div based on the visibility state
         <div className="EditSector" >
           <PersonForm content={person} handleRefreshData={handleRefreshData} id={person._id}/>

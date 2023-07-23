@@ -1,0 +1,21 @@
+.structur_list_item {
+     display: flex;
+     align-items: center;
+     justify-content: center;
+     gap: 10px;
+     background-color: white;
+     margin: 10px 0;
+     padding: 8px 20px;
+     border-radius: 20px;
+     width: fit-content;
+}
+.structur_list_item p, .structur_list_item a {
+     margin: 0;
+     line-height: 1em;
+     padding: 0;
+}
+.structur_list_item a {
+     display: flex;
+     align-items: center;
+     justify-content: center;
+}

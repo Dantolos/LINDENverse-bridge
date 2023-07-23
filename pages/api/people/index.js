@@ -6,6 +6,7 @@ connectMongo();
 export default async(req, res) => {
      const { method } = req;
      const searchString = req.query.searchString || ""; 
+     const limit = req.query.limit || ""; 
   
      switch (method) {
           case 'GET':
@@ -16,7 +17,9 @@ export default async(req, res) => {
                               { firstname: { $regex: searchString, $options: "i" } },
                               { lastname: { $regex: searchString, $options: "i" } }
                          ]   
-                    }).sort({'createdAt': -1});
+                    })
+                    .sort({'createdAt': -1})
+                    .limit(limit);
                     res.status(200).json({ success: true, data: peoples });
                } catch (error) {
                     res.status(400).json({ success: false });

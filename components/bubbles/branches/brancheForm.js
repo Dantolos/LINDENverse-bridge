@@ -41,7 +41,7 @@ export default function BrancheForm({ handleRefreshData = false, content = false
           <div>
                <form>
                     <label htmlFor="branche">
-                         Branche:
+                         Branche Name:
                          <input type="text" value={form.branche} name="branche" onChange={handleChange} />
                     </label>
 

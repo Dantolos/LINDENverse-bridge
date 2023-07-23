@@ -11,7 +11,7 @@ export default async(req, res) => {
           case 'GET':
                try {
                     await connectMongo();
-                    const branches = await Branches.find({ }).sort({'createdAt': -1});
+                    const branches = await Branches.find({ }).sort({'branche': 1});
                     res.status(200).json({ success: true, data: branches });
                } catch (error) {
                     res.status(400).json({ success: false });

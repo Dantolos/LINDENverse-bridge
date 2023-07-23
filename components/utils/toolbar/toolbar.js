@@ -21,7 +21,6 @@ export default function Toolbar({ handleRefreshData }) {
      }
 
      const handleSubmitAdd = () => {
-          console.log('dfad')
           handleRefreshData();
           setTools({
                ...tools,
@@ -32,7 +31,7 @@ export default function Toolbar({ handleRefreshData }) {
      return(
           <>
                <div className={`${styles.toolbarWrapper}`}>
-                    <Tool handleToolClick={handleToolClick} />  
+                    <Tool handleToolClick={handleToolClick} icon="LuPlus"/>  
 
                     { tools.workbench && (
                          <div className={`L3Lshadow ${styles.toolbarWorkbench} `}>

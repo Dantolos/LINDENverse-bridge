@@ -6,7 +6,7 @@ connectMongo();
 export default async(req, res) => {
      try {
           const startDate = new Date();
-          startDate.setDate(startDate.getDate() - 10); // Subtract 5 days
+          startDate.setDate(startDate.getDate() - 20); // Subtract 5 days
           const count = await People.countDocuments();
           const countByDay = await People.aggregate([
                {
@@ -26,7 +26,7 @@ export default async(req, res) => {
           ]);
           // Create an array with all the days in the range
           const daysRange = Array.from(
-               { length: 10 },
+               { length: 20 },
                (_, i) => new Date(startDate.getTime() + i * 24 * 60 * 60 * 1000)
           );
           const countByDayWithMissing = daysRange.map((day) => {

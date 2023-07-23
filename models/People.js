@@ -7,7 +7,7 @@ const PeopleSchema = new mongoose.Schema({
     age:{ type: Number, default: 52 },
     email: {
         type: String,
-        required: true,
+        required: true, 
         unique: true,
         lowercase: true,
         validate: {
@@ -17,19 +17,13 @@ const PeopleSchema = new mongoose.Schema({
           message: 'Invalid email address',
         },
     },
+    branches: [{
+      type: mongoose.Schema.Types.ObjectId,
+      ref: 'Branches',
+    }],
 
 }, { 
     timestamps: { createdAt: true }
 });
-
-/* let People;
-
-try {
-  // Check if the model already exists in the current connection
-  People = mongoose.connection.models.People || mongoose.model('People', peopleSchema);
-} catch (error) {
-  // Create the model if it doesn't exist
-  People = model('People', peopleSchema);
-} */
 
 module.exports = mongoose.models.People || mongoose.model('People', PeopleSchema);

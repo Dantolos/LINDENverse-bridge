@@ -1,0 +1,18 @@
+.peoplewrapper {
+     display: flex;
+     justify-content: center;
+}
+
+/* People Page */
+.personWrapper {
+     display: flex;
+     justify-content: center;
+}
+
+.personContainer {
+     background-color: white;
+     width: 90%;
+     border-radius: 20px;
+     margin-top: 20px;
+     padding: 20px;
+}

@@ -9,6 +9,6 @@ const BranchesSchema = new mongoose.Schema({
     }
 }, { 
     timestamps: { createdAt: true }
-});
+}); 
 
 module.exports = mongoose.models.Branches || mongoose.model('Branches', BranchesSchema);

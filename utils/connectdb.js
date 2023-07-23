@@ -1,3 +1,4 @@
+require('dotenv').config();
 const mongoose = require('mongoose')
 
 const connection = {};
@@ -17,4 +18,5 @@ const connectMongo = async () => {
   //console.log(connection.isConnected);
 };
 
-export default connectMongo;
+//export default connectMongo;
+module.exports = connectMongo;

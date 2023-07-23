@@ -1,8 +1,10 @@
 import { useState } from "react";
-import PersonGrid from "../../components/people/persongrid";
-import PersonForm from "../../components/people/personform";
+
+import PersonGrid from "../../../components/people/persongrid";
+import PersonForm from "../../../components/people/personform";
+
 import styles from "./people.module.css";
-import Toolbar from "../../components/utils/toolbar/toolbar";
+import Toolbar from "../../../components/utils/toolbar/toolbar";
 
 export default function PeoplePage(){
      const [refreshData, setRefreshData] = useState(false);
